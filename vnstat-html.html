@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>VnStat Menu</title>
+  </head>
+  <body>
+    <h1>VnStat Menu</h1>
+    <form>
+      <select id="vnstat-option" onchange="runVnStat(this.value)">
+        <option value="">Select an option</option>
+        <option value="daily">Daily</option>
+        <option value="monthly">Monthly</option>
+        <option value="summary">Summary</option>
+        <option value="top10">Top 10</option>
+      </select>
+    </form>
+    <div id="image-container">
+      <img id="vnstat-image" src="" alt="VnStat Image">
+    </div>
+
+    <script>
+      function runVnStat(option) {
+        var command = "";
+        var imageSrc = "";
+        switch (option) {
+          case "daily":
+            command = "vnstati -d -o /root/test_d.jpg";
+            imageSrc = "/root/test_d.jpg";
+            break;
+          case "monthly":
+            command = "vnstati -m -o /root/test_m.jpg";
+            imageSrc = "/root/test_m.jpg";
+            break;
+          case "summary":
+            command = "vnstati -s -o /root/test_s.jpg";
+            imageSrc = "/root/test_s.jpg";
+            break;
+          case "top10":
+            command = "vnstati -t -o /root/test_t.jpg";
+            imageSrc = "/root/test_t.jpg";
+            break;
+        }
+        // Run the command using AJAX or some other method
+        // For this example, we'll use a simple XMLHttpRequest
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "run_command.php?command=" + encodeURIComponent(command), true);
+        xhr.send();
+        // Update the image src
+        document.getElementById("vnstat-image").src = imageSrc;
+      }
+    </script>
+  </body>
+</html>
