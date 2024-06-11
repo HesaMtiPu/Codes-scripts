@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images</title>
+    <style>
+        .container {
+            max-width: 1220px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .col-lg-6 {
+            flex: 0 0 auto;
+            width: 50%;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .containerImg img {
+            margin: 0 10px 10px 0px;
+            height: 142px;
+            width: 600px;
+        }
+
+        .img1 {
+            height: 400px;
+            width: 600px;
+        }
+
+        .img2 {
+            width: 600px;
+            height: 198px;
+        }
+
+        @media (max-width: 991px) {
+            .row {
+                display: block;
+            }
+
+            .img2 {
+                width: auto;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="container">
+            <h2>Gallery with only 5 images</h2>
+            <div class="row containerImg">
+                <div class="col-lg-6"><img src="img/test.jpg" alt=""></div>
+                <div class="col-lg-6"><img src="img/test_m.jpg" alt=""></div>
+            </div>
+            <div class="row img-grid">
+                <div class="col-lg-6"><img src="img/test_d.jpg" alt="" class="img1"></div>
+                <div class="col-lg-6">
+                    <img src="img/test_s.jpg" class="img2" alt="">
+                    <img src="img/test_t.jpg" class="img2" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
